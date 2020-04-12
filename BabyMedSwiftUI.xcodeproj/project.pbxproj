@@ -21,6 +21,9 @@
 		06BAEC5324424CFD0047D86D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC5224424CFD0047D86D /* MainView.swift */; };
 		06BAEC55244254310047D86D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC54244254310047D86D /* Models.swift */; };
 		06BAEC58244323740047D86D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC57244323740047D86D /* UserDefaultsHelper.swift */; };
+		06BAEC5A244350230047D86D /* childRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC59244350230047D86D /* childRow.swift */; };
+		06BAEC5C24435E010047D86D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC5B24435E010047D86D /* ProfileView.swift */; };
+		06BAEC5E244367C80047D86D /* illRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC5D244367C80047D86D /* illRow.swift */; };
 		73BE371634E6A7152F9B7C5C /* Pods_BabyMedSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		06BAEC5224424CFD0047D86D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		06BAEC54244254310047D86D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		06BAEC57244323740047D86D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		06BAEC59244350230047D86D /* childRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = childRow.swift; sourceTree = "<group>"; };
+		06BAEC5B24435E010047D86D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		06BAEC5D244367C80047D86D /* illRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = illRow.swift; sourceTree = "<group>"; };
 		67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyMedSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A018C876FC85E62CA5B980C2 /* Pods-BabyMedSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyMedSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-BabyMedSwiftUI/Pods-BabyMedSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		D847CE2EE8E5EFC3E35C764E /* Pods-BabyMedSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyMedSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-BabyMedSwiftUI/Pods-BabyMedSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 				06BAEC312441E99D0047D86D /* SceneDelegate.swift */,
 				06BAEC332441E99D0047D86D /* ContentView.swift */,
 				06BAEC5224424CFD0047D86D /* MainView.swift */,
+				06BAEC5B24435E010047D86D /* ProfileView.swift */,
 				06BAEC352441E9A00047D86D /* Assets.xcassets */,
 				06BAEC3A2441E9A00047D86D /* LaunchScreen.storyboard */,
 				06BAEC3D2441E9A00047D86D /* Info.plist */,
@@ -92,6 +99,8 @@
 				06BAEC472441F2780047D86D /* SessionManager.swift */,
 				06BAEC54244254310047D86D /* Models.swift */,
 				06BAEC4B2441FAD70047D86D /* AuthViews */,
+				06BAEC59244350230047D86D /* childRow.swift */,
+				06BAEC5D244367C80047D86D /* illRow.swift */,
 			);
 			path = BabyMedSwiftUI;
 			sourceTree = "<group>";
@@ -259,11 +268,14 @@
 				06BAEC4D2441FAF00047D86D /* SignInView.swift in Sources */,
 				06BAEC5324424CFD0047D86D /* MainView.swift in Sources */,
 				06BAEC302441E99D0047D86D /* AppDelegate.swift in Sources */,
+				06BAEC5C24435E010047D86D /* ProfileView.swift in Sources */,
 				06BAEC4F2441FB9A0047D86D /* AuthView.swift in Sources */,
 				06BAEC51244205DD0047D86D /* SignUpView.swift in Sources */,
+				06BAEC5A244350230047D86D /* childRow.swift in Sources */,
 				06BAEC322441E99D0047D86D /* SceneDelegate.swift in Sources */,
 				06BAEC55244254310047D86D /* Models.swift in Sources */,
 				06BAEC482441F2780047D86D /* SessionManager.swift in Sources */,
+				06BAEC5E244367C80047D86D /* illRow.swift in Sources */,
 				06BAEC342441E99D0047D86D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

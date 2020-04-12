@@ -24,6 +24,10 @@ public class UserDefaultsHelper{
         get{return UserDefaults.standard.string(forKey: "UserDefaultsHelper.currentUserID")}
         set{UserDefaults.standard.set(newValue, forKey: "UserDefaultsHelper.currentUserID")}
     }
+    open class var currenChildID: String?{
+           get{return UserDefaults.standard.string(forKey: "UserDefaultsHelper.currenChildID")}
+           set{UserDefaults.standard.set(newValue, forKey: "UserDefaultsHelper.currenChildID")}
+       }
     
 //    open class var news:[News]?{
 //        get{

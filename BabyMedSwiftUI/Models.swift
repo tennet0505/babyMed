@@ -15,9 +15,10 @@ import Combine
 class Children: ObservableObject {
     
     @Published var children = [child]()
+    @Published var illness = [ill]()
     @EnvironmentObject var session: SessionManager
     init() {
-
+        
         //DataBase
         let dataBase = Database.database().reference()
         dataBase.child("children").observe(.childAdded, with: { snap  in
@@ -52,33 +53,44 @@ class Children: ObservableObject {
         })
         //CloudDB
         //        let db = Firestore.firestore()
-//        db.collection("children").addSnapshotListener { (snap, error) in
-//            if error != nil{
-//                print(error?.localizedDescription ?? "")
-//                return
-//            }else{
-//                for kid in snap!.documentChanges{
-//                    let id = kid.document.documentID
-//                    let name = kid.document.get("name") as! String
-//                    let userId = kid.document.get("userId") as! String
-//                    let gender = kid.document.get("gender") as! String
-//                    let bloodType = kid.document.get("bloodType") as! String
-//                    let photoUri = kid.document.get("photoUri") as! String
-//                    let weight = kid.document.get("weight") as! String
-//
-//                    let kid = child(id: id,
-//                                    name: name ,
-//                                    userId: userId,
-//                                    gender: gender,
-//                                    bloodType: bloodType,
-//                                    photoUri: photoUri,
-//                                    weight: weight)
-//
-//                    self.children.append(kid)
-//                }
-//            }
-//        }
+        //        db.collection("children").addSnapshotListener { (snap, error) in
+        //            if error != nil{
+        //                print(error?.localizedDescription ?? "")
+        //                return
+        //            }else{
+        //                for kid in snap!.documentChanges{
+        //                    let id = kid.document.documentID
+        //                    let name = kid.document.get("name") as! String
+        //                    let userId = kid.document.get("userId") as! String
+        //                    let gender = kid.document.get("gender") as! String
+        //                    let bloodType = kid.document.get("bloodType") as! String
+        //                    let photoUri = kid.document.get("photoUri") as! String
+        //                    let weight = kid.document.get("weight") as! String
+        //
+        //                    let kid = child(id: id,
+        //                                    name: name ,
+        //                                    userId: userId,
+        //                                    gender: gender,
+        //                                    bloodType: bloodType,
+        //                                    photoUri: photoUri,
+        //                                    weight: weight)
+        //
+        //                    self.children.append(kid)
+        //                }
+        //            }
+        //        }
     }
+}
+class Illness: ObservableObject {
+    
+    @Published var illness = [ill]()
+    @EnvironmentObject var session: SessionManager
+    
+    func add(item: ill) {
+           illness.append(item)
+       }
+
+   
 }
 
 struct child: Identifiable {
@@ -114,7 +126,6 @@ struct child: Identifiable {
 struct ill: Identifiable {
     var id: String
     var date: String
-    var idIll: String
     var illnessWeight: String
     var name: String
     var symptoms: String
@@ -123,7 +134,6 @@ struct ill: Identifiable {
     
     init(id: String,
          date: String,
-         idIll: String,
          illnessWeight: String,
          name: String,
          symptoms: String,
@@ -132,7 +142,6 @@ struct ill: Identifiable {
         
         self.id = id
         self.date = date
-        self.idIll = idIll
         self.illnessWeight = illnessWeight
         self.name = name
         self.symptoms = symptoms

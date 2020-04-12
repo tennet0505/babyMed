@@ -7,18 +7,20 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MainView: View {
     
     @ObservedObject private var children = Children()
     @EnvironmentObject var session: SessionManager
+    @EnvironmentObject var illness: Illness
     
     var body: some View {
         NavigationView(){
             VStack{
                 List(){
                     ForEach(children.children) { (item) in
-                        Text(item.name)
+                        childRow(child: item)
                     }
                 }
                 VStack(alignment: .center, spacing: 18){

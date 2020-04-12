@@ -10,6 +10,7 @@ target 'BabyMedSwiftUI' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'SDWebImageSwiftUI'
 
   # Pods for BabyMedSwiftUI
 

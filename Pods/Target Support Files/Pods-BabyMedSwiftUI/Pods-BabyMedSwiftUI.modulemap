@@ -1,0 +1,6 @@
+framework module Pods_BabyMedSwiftUI {
+  umbrella header "Pods-BabyMedSwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -87,10 +87,13 @@ class Illness: ObservableObject {
     @EnvironmentObject var session: SessionManager
     
     func add(item: ill) {
-           illness.append(item)
-       }
-
-   
+        illness.append(item)
+    }
+    func removeAll() {
+        illness.removeAll()
+    }
+    
+    
 }
 
 struct child: Identifiable {

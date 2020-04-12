@@ -60,11 +60,16 @@ struct ProfileView: View {
                 }
             }
         }.onAppear(perform: getData)
+            .onDisappear(perform: removeData)
+    }
+    func removeData(){
+        self.illness.removeAll()
     }
     func getData() {
+        
         let dataBase = Database.database().reference()
         dataBase.child("children").child(child.id).child("illnessList").observe(.childAdded, with: { snap  in
-            
+           
             if let getData = snap.value as? [String:Any] {
                 if
                     let date = getData["date"],

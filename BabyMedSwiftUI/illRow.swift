@@ -13,7 +13,11 @@ struct illRow: View {
     var item: ill
     
     var body: some View {
-        Text(item.name)
+        HStack{
+            Text(item.name)
+            Spacer()
+            Text(item.date)
+        }
     }
 }
 

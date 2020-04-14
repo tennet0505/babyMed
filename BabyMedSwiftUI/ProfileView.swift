@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 struct ProfileView: View {
     
-    var child: child
+    var child: Child
     @EnvironmentObject var illness: Illness
 
     var body: some View {
@@ -80,7 +80,7 @@ struct ProfileView: View {
                     let treatment = getData["treatment"],
                     let treatmentPhotoUri = getData["treatmentPhotoUri"]
                 {
-                    let ill1 = ill( id: id as! String,
+                    let ill1 = Ill( id: id as! String,
                                     date: date as! String,
                                     illnessWeight: "\(illnessWeight)",
                                     name: name as! String,
@@ -96,6 +96,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(child: child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))
+        ProfileView(child: Child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))
     }
 }

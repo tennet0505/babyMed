@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060BA2462444BACC002896C8 /* TextFieldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060BA2452444BACC002896C8 /* TextFieldExample.swift */; };
 		06BAEC302441E99D0047D86D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC2F2441E99D0047D86D /* AppDelegate.swift */; };
 		06BAEC322441E99D0047D86D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC312441E99D0047D86D /* SceneDelegate.swift */; };
 		06BAEC342441E99D0047D86D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC332441E99D0047D86D /* ContentView.swift */; };
@@ -24,10 +25,12 @@
 		06BAEC5A244350230047D86D /* childRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC59244350230047D86D /* childRow.swift */; };
 		06BAEC5C24435E010047D86D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC5B24435E010047D86D /* ProfileView.swift */; };
 		06BAEC5E244367C80047D86D /* illRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC5D244367C80047D86D /* illRow.swift */; };
+		06BAEC6024446A090047D86D /* NewChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC5F24446A090047D86D /* NewChildView.swift */; };
 		73BE371634E6A7152F9B7C5C /* Pods_BabyMedSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060BA2452444BACC002896C8 /* TextFieldExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExample.swift; sourceTree = "<group>"; };
 		06BAEC2C2441E99D0047D86D /* BabyMedSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyMedSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BAEC2F2441E99D0047D86D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06BAEC312441E99D0047D86D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		06BAEC59244350230047D86D /* childRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = childRow.swift; sourceTree = "<group>"; };
 		06BAEC5B24435E010047D86D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		06BAEC5D244367C80047D86D /* illRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = illRow.swift; sourceTree = "<group>"; };
+		06BAEC5F24446A090047D86D /* NewChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChildView.swift; sourceTree = "<group>"; };
 		67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabyMedSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A018C876FC85E62CA5B980C2 /* Pods-BabyMedSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyMedSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-BabyMedSwiftUI/Pods-BabyMedSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		D847CE2EE8E5EFC3E35C764E /* Pods-BabyMedSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabyMedSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-BabyMedSwiftUI/Pods-BabyMedSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060BA2442444BA6C002896C8 /* NewChildViews */ = {
+			isa = PBXGroup;
+			children = (
+				06BAEC5F24446A090047D86D /* NewChildView.swift */,
+				060BA2452444BACC002896C8 /* TextFieldExample.swift */,
+			);
+			path = NewChildViews;
+			sourceTree = "<group>";
+		};
 		06BAEC232441E99D0047D86D = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +105,7 @@
 				06BAEC332441E99D0047D86D /* ContentView.swift */,
 				06BAEC5224424CFD0047D86D /* MainView.swift */,
 				06BAEC5B24435E010047D86D /* ProfileView.swift */,
+				060BA2442444BA6C002896C8 /* NewChildViews */,
 				06BAEC352441E9A00047D86D /* Assets.xcassets */,
 				06BAEC3A2441E9A00047D86D /* LaunchScreen.storyboard */,
 				06BAEC3D2441E9A00047D86D /* Info.plist */,
@@ -264,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BAEC6024446A090047D86D /* NewChildView.swift in Sources */,
 				06BAEC58244323740047D86D /* UserDefaultsHelper.swift in Sources */,
 				06BAEC4D2441FAF00047D86D /* SignInView.swift in Sources */,
 				06BAEC5324424CFD0047D86D /* MainView.swift in Sources */,
@@ -272,6 +287,7 @@
 				06BAEC4F2441FB9A0047D86D /* AuthView.swift in Sources */,
 				06BAEC51244205DD0047D86D /* SignUpView.swift in Sources */,
 				06BAEC5A244350230047D86D /* childRow.swift in Sources */,
+				060BA2462444BACC002896C8 /* TextFieldExample.swift in Sources */,
 				06BAEC322441E99D0047D86D /* SceneDelegate.swift in Sources */,
 				06BAEC55244254310047D86D /* Models.swift in Sources */,
 				06BAEC482441F2780047D86D /* SessionManager.swift in Sources */,

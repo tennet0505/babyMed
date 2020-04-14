@@ -14,8 +14,9 @@ import Combine
 
 class Children: ObservableObject {
     
-    @Published var children = [child]()
-    @Published var illness = [ill]()
+    @Published var children = [Child]()
+    @Published var illness = [Ill]()
+    
     @EnvironmentObject var session: SessionManager
     init() {
         
@@ -36,7 +37,7 @@ class Children: ObservableObject {
                 {
                     if let uid = UserDefaultsHelper.currentUserID{
                         if uid == userId as? String{
-                            let kid = child(id: id as! String,
+                            let kid = Child(id: id as! String,
                                             name: name as! String,
                                             userId: userId as! String,
                                             birthDate: birthDay  as! String,
@@ -83,20 +84,31 @@ class Children: ObservableObject {
 }
 class Illness: ObservableObject {
     
-    @Published var illness = [ill]()
+    @Published var illness = [Ill]()
     @EnvironmentObject var session: SessionManager
     
-    func add(item: ill) {
+    func add(item: Ill) {
         illness.append(item)
     }
     func removeAll() {
         illness.removeAll()
     }
-    
-    
 }
 
-struct child: Identifiable {
+//class NewChild: ObservableObject {
+//    
+//    var didChange = PassthroughSubject<NewChild, Never>()
+//    
+//    @Published var child: Child?{didSet{ self.didChange.send(self) }}
+//    @EnvironmentObject var session: SessionManager
+//    
+//    func addNew(child: Child) {
+//        let dataBase = Database.database().reference()
+//        dataBase.child("children").child("\(child.id)").setValue(child)
+//    }
+//}
+
+struct Child: Identifiable, Codable {
     var id: String
     var name: String
     var birthDate: String
@@ -105,7 +117,7 @@ struct child: Identifiable {
     var bloodType: String
     var photoUri: String
     var weight: String
-    
+        
     init(id: String,
          name: String,
          userId: String,
@@ -124,9 +136,10 @@ struct child: Identifiable {
         self.photoUri = photoUri
         self.weight = weight
     }
-    
 }
-struct ill: Identifiable {
+
+
+struct Ill: Identifiable {
     var id: String
     var date: String
     var illnessWeight: String

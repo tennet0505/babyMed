@@ -14,22 +14,39 @@ struct MainView: View {
     @ObservedObject private var children = Children()
     @EnvironmentObject var session: SessionManager
     @EnvironmentObject var illness: Illness
+    @State var isModal = false
     
     var body: some View {
         NavigationView(){
-            VStack{
-                List(){
-                    ForEach(children.children) { (item) in
-                        childRow(child: item)
+            Form{
+                Section{
+                    List(){
+                        ForEach(children.children) { (item) in
+                            childRow(child: item)
+                        }
                     }
                 }
-                VStack(alignment: .center, spacing: 18){
-                    Text("Welcome back! \(session.session?.displayName ?? "")")
-                    Text("Email! \(session.session?.email ?? "")")
-                    Text("Welcome back! \(session.session?.uid ?? "")")
-                        .multilineTextAlignment(.center)
-                    
-                }.padding(18)
+                Section{
+                    Button("Добавить") {
+                        self.isModal = true
+                    }.sheet(isPresented: $isModal) {
+                        NewChildView()
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.orange)
+                        .font(.system(size: 20, weight: .heavy))
+                        .cornerRadius(40)
+                }
+                Section{
+                    VStack(alignment: .center, spacing: 18){
+                        Text("Welcome back! \(session.session?.displayName ?? "")")
+                        Text("Email! \(session.session?.email ?? "")")
+                        Text("Welcome back! \(session.session?.uid ?? "")")
+                            .multilineTextAlignment(.center)
+                        
+                    }.padding(18)
+                }
             }
             .navigationBarTitle("Children")
             .listStyle(GroupedListStyle())

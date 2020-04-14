@@ -10,7 +10,7 @@ import SwiftUI
 
 struct illRow: View {
     
-    var item: ill
+    var item: Ill
     
     var body: some View {
         HStack{
@@ -23,6 +23,6 @@ struct illRow: View {
 
 struct illRow_Previews: PreviewProvider {
     static var previews: some View {
-        illRow(item: ill(id: " ", date: " ",  illnessWeight: " ", name: " ", symptoms: " ", treatment: " ", treatmentPhotoUri: " "))
+        illRow(item: Ill(id: " ", date: " ",  illnessWeight: " ", name: " ", symptoms: " ", treatment: " ", treatmentPhotoUri: " "))
     }
 }

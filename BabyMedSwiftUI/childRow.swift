@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 struct childRow: View {
     
-    var child: child    
+    var child: Child    
    
     var body: some View {
         NavigationLink(destination: ProfileView(child: child)){
@@ -35,6 +35,6 @@ struct childRow: View {
 struct childRow_Previews: PreviewProvider {
     
     static var previews: some View {
-        childRow(child: child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))
+        childRow(child: Child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))
     }
 }

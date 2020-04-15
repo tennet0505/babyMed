@@ -9,6 +9,24 @@
 import SwiftUI
 import FirebaseDatabase
 
+
+struct TextModifire: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 20, weight: .bold))
+            .foregroundColor(.orange)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+struct TextFieldModifire: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 14))
+            .padding(12)
+            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+    }
+}
+
 struct NewChildView: View {
     
     @State var name = ""
@@ -70,46 +88,29 @@ struct NewChildView: View {
                     }
                     VStack(spacing: 8){
                         Text("Birth day")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.orange)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .modifier(TextModifire())
                         TextField("Birth day", text: $birthDate)
-                            .font(.system(size: 14))
-                            .padding(12)
-                            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+                            .modifier(TextFieldModifire())
                         
                     }
                     VStack(spacing: 8){
                         Text("Sex")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.orange)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .modifier(TextModifire())
                         TextField("Sex", text: $gender)
-                            .font(.system(size: 14))
-                            .padding(12)
-                            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+                            .modifier(TextFieldModifire())
                         
                     }
                     VStack(spacing: 8){
                         Text("Weight")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.orange)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .modifier(TextModifire())
                         TextField("Weight", text: $weight)
-                            .font(.system(size: 14))
-                            .padding(12)
-                            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
-                        
+                            .modifier(TextFieldModifire())
                     }
                     VStack(spacing: 8){
                         Text("Blood type")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.orange)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .modifier(TextModifire())
                         TextField("Blood type", text: $bloodType)
-                            .font(.system(size: 14))
-                            .padding(12)
-                            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+                            .modifier(TextFieldModifire())
                         
                     }
                     

@@ -20,9 +20,10 @@ struct childRow: View {
             HStack(){
                 WebImage(url: URL(string: child.photoUri))
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill()
                     .frame(width: 100, height: 100, alignment:  .center)
-                    .clipShape(Circle())
+                    .cornerRadius(10)//clipShape(Circle())
+                    .clipped()
                 
                 Spacer()
                 Text(child.name)

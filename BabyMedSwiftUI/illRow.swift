@@ -10,19 +10,22 @@ import SwiftUI
 
 struct illRow: View {
     
-    var item: Ill
+    var ill: Ill
+    var child: Child
     
     var body: some View {
-        HStack{
-            Text(item.name)
-            Spacer()
-            Text(item.date)
+        NavigationLink(destination: IllDetailView(ill: ill, child: child)){
+            HStack{
+                Text(ill.name)
+                Spacer()
+                Text(ill.date)
+            }
         }
     }
 }
 
 struct illRow_Previews: PreviewProvider {
     static var previews: some View {
-        illRow(item: Ill(id: " ", date: " ",  illnessWeight: " ", name: " ", symptoms: " ", treatment: " ", treatmentPhotoUri: " "))
+        illRow(ill: Ill(id: " ", date: " ",  illnessWeight: " ", name: " ", symptoms: " ", treatment: " ", treatmentPhotoUri: " "), child: Child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))
     }
 }

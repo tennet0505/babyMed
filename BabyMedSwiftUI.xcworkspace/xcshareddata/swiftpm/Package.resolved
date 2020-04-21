@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "TextView",
+        "repositoryURL": "https://github.com/kenmueller/TextView",
+        "state": {
+          "branch": "master",
+          "revision": "b6f475e8e0f6caa4249395190b03e66ba826e54b",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

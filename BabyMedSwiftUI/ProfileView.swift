@@ -14,7 +14,7 @@ struct ProfileView: View {
     
     var child: Child
     @EnvironmentObject var illness: Illness
-
+    
     var body: some View {
         Form{
             Text(child.name)
@@ -56,7 +56,7 @@ struct ProfileView: View {
             }
             List{
                 ForEach(illness.illness) { (item) in
-                    illRow(item: item)
+                    illRow(ill: item, child: self.child)
                 }
             }
         }.onAppear(perform: getData)

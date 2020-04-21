@@ -16,7 +16,13 @@ struct MainView: View {
     @EnvironmentObject var illness: Illness
     @State var isModal = false
     
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.4901960784, blue: 0.1254901961, alpha: 1)
+    }
+    
     var body: some View {
+   
         NavigationView(){
             Form{
                 Section{
@@ -48,7 +54,7 @@ struct MainView: View {
                     }.padding(18)
                 }
             }
-            .navigationBarTitle("Children")
+            .navigationBarTitle("Children", displayMode: .inline)
             .listStyle(GroupedListStyle())
             .navigationBarItems(trailing:
                 Button(action: session.signOut){

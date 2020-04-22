@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FirebaseDatabase
+import FirebaseStorage
 
 
 struct TextModifire: ViewModifier{
@@ -29,6 +30,12 @@ struct TextFieldModifire: ViewModifier{
 
 struct NewChildView: View {
     
+    let store = Storage.storage()
+    let dataBase = Database.database().reference()
+    let userId = UserDefaultsHelper.currentUserID ?? " "
+    @State var downloadURL = ""
+    @State var imgReceptPath = ""
+    
     @State var name = ""
     @State var birthDate = ""
     @State var gender = ""
@@ -37,7 +44,9 @@ struct NewChildView: View {
     @State var isShowAlert = false
     @State var showingImagePicker = false
     @State var inputImage: UIImage?
+    @State var inputImageURL: NSURL?
     @State var image: Image?
+    @State var imageURL: NSURL?
     
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var session: SessionManager
@@ -56,6 +65,7 @@ struct NewChildView: View {
                                 .frame(width: 100, height: 100, alignment:  .center)
                                 .clipShape(Circle())
                         }else{
+                            
                             Image("avatar_default")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -113,42 +123,73 @@ struct NewChildView: View {
                         .background(Color.orange)
                         .cornerRadius(5)
                 }
-            }.padding(8)
-        }.navigationBarTitle(Text("New Baby"), displayMode: .inline)
-            .alert(isPresented: $isShowAlert) {
+            }.padding(8).navigationBarTitle(Text("New Baby"), displayMode: .inline)
+        }.alert(isPresented: $isShowAlert) {
                 
                 Alert(title: Text("Alert"), message: Text("Fill all fields"), primaryButton: .default(Text("Ok")){  print(Text("click ok"))
                     }, secondaryButton: .cancel())
         }
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-            ImagePicker(image: self.$inputImage)
+            ImagePicker(image: self.$inputImage, imageURL: self.$imageURL)
         }
     }
     func loadImage() {
-        guard let inputImage = inputImage else { return }
+        guard let inputImage = inputImage, let inputImageURL = imageURL  else { return }
         image = Image(uiImage: inputImage)
+        imageURL = inputImageURL
+        imgReceptPath = inputImageURL.lastPathComponent ?? " "
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+        store.reference().child("images/\(imgReceptPath)").putData(inputImage.jpegData(compressionQuality: 0.35)!, metadata: metaData) { (_, error)  in
+            if error != nil{
+                print(error?.localizedDescription)
+                return
+            }else{
+                self.store.reference().child("images/\(self.imgReceptPath)").downloadURL { (url, error) in
+                    if error != nil{
+                        print(error?.localizedDescription)
+                        return
+                    }else{
+                        DispatchQueue.main.async {
+                            if  let URLdownload = url {
+                                self.downloadURL = URLdownload.absoluteString
+                                print(self.downloadURL)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     func createNewChild(){
-           
-           if name != "" && birthDate != "" {
-               let dataBase = Database.database().reference()
-               let userId = UserDefaultsHelper.currentUserID ?? " "
-               let id = dataBase.child("children").childByAutoId().key ?? ""
+        
+        let id = dataBase.child("children").childByAutoId().key ?? ""
+        if name != "" && birthDate != "" {
+            
                let new: [String : Any] = ["id": id,
                                           "name": name,
                                           "birthDate": birthDate,
                                           "gender": gender,
                                           "weight": weight,
                                           "bloodType": bloodType,
-                                          "photoUri": "",
+                                          "photoUri": downloadURL,
                                           "userId": userId,
                                           "illnessList": []]
                
                dataBase.child("children").child("\(id)").setValue(new)
                self.presentation.wrappedValue.dismiss()
-           }else{
-               self.isShowAlert = true
-           }
+            
+            if image != nil{
+                
+                if downloadURL != "" {
+                    dataBase.child("children").child("\(id)").updateChildValues(["photoUri": downloadURL])
+                }
+            }
+            
+        }else{
+            self.isShowAlert = true
+        }
        }
 }
 

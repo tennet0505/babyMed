@@ -13,6 +13,8 @@ import FirebaseDatabase
 struct ProfileView: View {
     
     var child: Child
+    @State var isModal = false
+    @State var isModalEditChildView = false
     @EnvironmentObject var illness: Illness
     
     var body: some View {
@@ -59,8 +61,26 @@ struct ProfileView: View {
                     illRow(ill: item, child: self.child)
                 }
             }
+            Section{
+                Button("Добавить") {
+                    self.isModal = true
+                }.sheet(isPresented: $isModal) {
+                    NewIllView()
+                }.frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.orange)
+                    .font(.system(size: 20, weight: .heavy))
+                    .cornerRadius(40)
+            }
         }.onAppear(perform: getData)
             .onDisappear(perform: removeData)
+            .navigationBarItems(trailing:
+                Button("Редактировать") {
+                    self.isModalEditChildView = true
+                }.sheet(isPresented: $isModalEditChildView) {
+                    EditChildView(child: self.child)
+        })
     }
     func removeData(){
         self.illness.removeAll()

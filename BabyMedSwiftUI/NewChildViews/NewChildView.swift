@@ -11,23 +11,6 @@ import FirebaseDatabase
 import FirebaseStorage
 
 
-struct TextModifire: ViewModifier{
-    func body(content: Content) -> some View {
-        content
-            .font(.system(size: 20, weight: .bold))
-            .foregroundColor(.orange)
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-struct TextFieldModifire: ViewModifier{
-    func body(content: Content) -> some View {
-        content
-            .font(.system(size: 14))
-            .padding(12)
-            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
-    }
-}
-
 struct NewChildView: View {
     
     let store = Storage.storage()
@@ -65,7 +48,6 @@ struct NewChildView: View {
                                 .frame(width: 100, height: 100, alignment:  .center)
                                 .clipShape(Circle())
                         }else{
-                            
                             Image("avatar_default")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -190,7 +172,7 @@ struct NewChildView: View {
         }else{
             self.isShowAlert = true
         }
-       }
+    }
 }
 
 

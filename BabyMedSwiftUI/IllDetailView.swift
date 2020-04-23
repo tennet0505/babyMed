@@ -82,35 +82,47 @@ struct IllDetailView: View {
                     TextView(text: $textTreatment).frame(numLines: 10)
                 }
             }
-            Section(){
-                 if !isEdit{
-                    WebImage(url: URL(string: child.photoUri))
+            if self.ill.treatmentPhotoUri != "null"{
+                Section(){
+                    if !isEdit{
+                        WebImage(url: URL(string: ill.treatmentPhotoUri))
+                            .onSuccess { image, cacheType in
+                                // Success
+                        }
                         .resizable()
+                        .indicator(.activity)
+                        .animation(.easeInOut(duration: 0.5))
                         .scaledToFill()
                         .frame(width: self.widthDisplay, height: self.widthDisplay / 2, alignment: .center)
                         .aspectRatio(contentMode: .fill)
-                    .clipped()
-                        
-                 }else{
-                    VStack{
-                        WebImage(url: URL(string: child.photoUri))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: self.widthDisplay, height: self.widthDisplay / 2, alignment: .center)
-                            .aspectRatio(contentMode: .fill)
                         .clipped()
-                        Button(action: {
+                        
+                    }else{
+                        VStack{
+                            WebImage(url: URL(string: ill.treatmentPhotoUri))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: self.widthDisplay, height: self.widthDisplay / 2, alignment: .center)
+                                .aspectRatio(contentMode: .fill)
+                                .clipped()
                             
+                            Button(action: {
+                                
                                 print("Send editted data to server")
-                        }, label: {
+                            }, label: {
                                 Text("Добавить")
-                           
-                        })
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.orange)
-                            .font(.system(size: 20, weight: .heavy))
+                                
+                            })
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .font(.system(size: 20, weight: .heavy))
+                        }
+                    }
+                    
+                    NavigationLink(destination: RecieptDetail(treatmentPhotoUri: self.ill.treatmentPhotoUri)) {
+                        Text("")
                     }
                 }
             }

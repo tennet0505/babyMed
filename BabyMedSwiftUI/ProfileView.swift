@@ -65,7 +65,7 @@ struct ProfileView: View {
                 Button("Добавить") {
                     self.isModal = true
                 }.sheet(isPresented: $isModal) {
-                    NewIllView()
+                    NewIllView(child: self.child)
                 }.frame(minWidth: 0, maxWidth: .infinity)
                     .padding()
                     .foregroundColor(.white)

@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		060BA2462444BACC002896C8 /* TextFieldExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060BA2452444BACC002896C8 /* TextFieldExample.swift */; };
+		066624B8273EA17100636EFA /* Pods_BabyMedSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */; };
+		066624B9273EA17100636EFA /* Pods_BabyMedSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		06BAEC302441E99D0047D86D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC2F2441E99D0047D86D /* AppDelegate.swift */; };
 		06BAEC322441E99D0047D86D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC312441E99D0047D86D /* SceneDelegate.swift */; };
 		06BAEC342441E99D0047D86D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BAEC332441E99D0047D86D /* ContentView.swift */; };
@@ -31,11 +33,23 @@
 		06EC418A2450908700399097 /* EditChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC41892450908700399097 /* EditChildView.swift */; };
 		06EC418C2451937F00399097 /* RecieptDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC418B2451937F00399097 /* RecieptDetail.swift */; };
 		06F30BEF24473EF9007FB6E5 /* IllDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F30BEE24473EF9007FB6E5 /* IllDetailView.swift */; };
-		06F30BF224487243007FB6E5 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 06F30BF124487243007FB6E5 /* TextView */; };
 		06F30BF624487B30007FB6E5 /* TextViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F30BF524487B30007FB6E5 /* TextViewHelper.swift */; };
 		06F30BF8244EE5D4007FB6E5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F30BF7244EE5D4007FB6E5 /* ImagePicker.swift */; };
-		73BE371634E6A7152F9B7C5C /* Pods_BabyMedSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67051468FF7733F60026E067 /* Pods_BabyMedSwiftUI.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		066624BA273EA17100636EFA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				066624B9273EA17100636EFA /* Pods_BabyMedSwiftUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		060BA2452444BACC002896C8 /* TextFieldExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExample.swift; sourceTree = "<group>"; };
@@ -76,8 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06F30BF224487243007FB6E5 /* TextView in Frameworks */,
-				73BE371634E6A7152F9B7C5C /* Pods_BabyMedSwiftUI.framework in Frameworks */,
+				066624B8273EA17100636EFA /* Pods_BabyMedSwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +218,7 @@
 				06BAEC292441E99D0047D86D /* Frameworks */,
 				06BAEC2A2441E99D0047D86D /* Resources */,
 				D78888E9D2525405799A4BCB /* [CP] Embed Pods Frameworks */,
+				066624BA273EA17100636EFA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,7 +226,6 @@
 			);
 			name = BabyMedSwiftUI;
 			packageProductDependencies = (
-				06F30BF124487243007FB6E5 /* TextView */,
 			);
 			productName = BabyMedSwiftUI;
 			productReference = 06BAEC2C2441E99D0047D86D /* BabyMedSwiftUI.app */;
@@ -243,7 +256,6 @@
 			);
 			mainGroup = 06BAEC232441E99D0047D86D;
 			packageReferences = (
-				06F30BF024487243007FB6E5 /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = 06BAEC2D2441E99D0047D86D /* Products */;
 			projectDirPath = "";
@@ -461,6 +473,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -532,25 +545,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		06F30BF024487243007FB6E5 /* XCRemoteSwiftPackageReference "TextView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kenmueller/TextView";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		06F30BF124487243007FB6E5 /* TextView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 06F30BF024487243007FB6E5 /* XCRemoteSwiftPackageReference "TextView" */;
-			productName = TextView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 06BAEC242441E99D0047D86D /* Project object */;
 }

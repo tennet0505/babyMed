@@ -153,6 +153,6 @@ struct NewIllView: View {
 
 struct NewIllView_Previews: PreviewProvider {
     static var previews: some View {
-        NewIllView(child: Child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))11
+        NewIllView(child: Child(id: " ", name: " ", userId: " ", birthDate: " ", gender: " ", bloodType: " ", photoUri: " ", weight: " "))
     }
 }

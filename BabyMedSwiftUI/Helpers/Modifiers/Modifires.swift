@@ -22,6 +22,7 @@ struct TextFieldModifire: ViewModifier{
             .font(.system(size: 14))
             .padding(12)
             .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+            .foregroundColor(.black)
     }
 }
 

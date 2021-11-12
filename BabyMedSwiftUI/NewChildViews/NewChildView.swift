@@ -61,13 +61,11 @@ struct NewChildView: View {
                     }
                     VStack(spacing: 8){
                         Text("Name")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.orange)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    TextField("Name", text: $name)
-                        .font(.system(size: 14))
-                        .padding(12)
-                        .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color.gray, lineWidth: 1))
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.orange)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        TextField("Name", text: $name)
+                            .modifier(TextFieldModifire())
                     }
                     VStack(spacing: 8){
                         Text("Birth day")

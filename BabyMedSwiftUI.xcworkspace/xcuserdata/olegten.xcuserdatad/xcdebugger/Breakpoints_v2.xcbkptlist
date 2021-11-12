@@ -30,10 +30,10 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "loadImage()"
-            landmarkType = "7">
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,8 +46,8 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "loadImage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,13 +62,13 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "loadImage()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0C561A1B-B890-41C9-ABAB-517AC41A5E61 - 421dcb4d5f413bbc"
+                  uuid = "0C561A1B-B890-41C9-ABAB-517AC41A5E61 - ffe98bec0ba36191"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -83,7 +83,7 @@
                   offsetFromSymbolStart = "736">
                </Location>
                <Location
-                  uuid = "0C561A1B-B890-41C9-ABAB-517AC41A5E61 - 96f5a8eab2f01eb8"
+                  uuid = "0C561A1B-B890-41C9-ABAB-517AC41A5E61 - 2b01e84be6124626"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -110,8 +110,8 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "createNewChild()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "createNewChild()"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "loadImage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "BabyMedSwiftUI/NewChildViews/NewChildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "loadImage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,7 +196,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C6B0D737-BE6E-4E21-B0E0-AED340A8323C - 76130aabe589ac06"
+                  uuid = "C6B0D737-BE6E-4E21-B0E0-AED340A8323C - b9abee248fa7b36e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -211,7 +211,7 @@
                   offsetFromSymbolStart = "1114">
                </Location>
                <Location
-                  uuid = "C6B0D737-BE6E-4E21-B0E0-AED340A8323C - a2a2d6da4f6f72c"
+                  uuid = "C6B0D737-BE6E-4E21-B0E0-AED340A8323C - c592c9e2ced8e94c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"

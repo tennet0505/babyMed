@@ -62,6 +62,7 @@ struct MainView: View {
                         .padding(18)
             })
         }
+        .background(Color.purple)
     }
 }
 

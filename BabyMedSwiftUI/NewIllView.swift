@@ -41,25 +41,25 @@ struct NewIllView: View {
             VStack(alignment: .leading, spacing: 18){
                 HStack(spacing: 18){
                     VStack(alignment: .leading, spacing: 8){
-                        Text("Название болезни:")
-                        TextField("Название болезни", text: $illName).modifier(TextFieldModifire())
+                        Text("Illness name:")
+                        TextField("Illness name", text: $illName).modifier(TextFieldModifire())
                     }
                     VStack(alignment: .leading, spacing: 8){
-                        Text("Дата заболевания:")
-                        TextField("Дата заболевания", text: $illDate).modifier(TextFieldModifire())
+                        Text("Date of a illness:")
+                        TextField("Date of a illness", text: $illDate).modifier(TextFieldModifire())
                     }
                 }
                 VStack(alignment: .leading, spacing: 8){
-                    Text("Вес:")
-                    TextField("Вес", text: $weight).modifier(TextFieldModifire())
+                    Text("Weight:")
+                    TextField("Weight", text: $weight).modifier(TextFieldModifire())
                         .frame(width: 150)
                 }
-                Text("Симптомы:")
+                Text("Symptoms:")
                 TextView(text: $symptoms).frame(numLines: 5)
-                Text("Лечение:")
+                Text("Treatment:")
                 TextView(text: $treatment).frame(numLines: 8)
                 Button(action: createNewIll) {
-                    Text("Сохранить")
+                    Text("Save")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 50)
                         .foregroundColor(.white)

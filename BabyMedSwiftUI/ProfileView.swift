@@ -28,21 +28,21 @@ struct ProfileView: View {
                     .clipShape(Circle())
                 HStack(spacing: 8){
                     VStack(alignment: .leading, spacing: 8){
-                        Text("День Рождения:")
+                        Text("Birth day:")
                             .font(.system(size: 14, weight: .medium))
                         Text(child.birthDate)
                             .font(.system(size: 14, weight: .heavy))
-                        Text("Вес:")
+                        Text("Weight:")
                             .font(.system(size: 14, weight: .medium))
                         Text(child.weight)
                             .font(.system(size: 14, weight: .heavy))
                     }
                     VStack(alignment: .leading, spacing: 8){
-                        Text("Пол:")
+                        Text("Sex:")
                             .font(.system(size: 14, weight: .medium))
                         Text(child.gender)
                             .font(.system(size: 14, weight: .heavy))
-                        Text("Группа крови:")
+                        Text("Blood type:")
                             .font(.system(size: 14, weight: .medium))
                         Text(child.bloodType)
                             .font(.system(size: 14, weight: .heavy))
@@ -50,7 +50,7 @@ struct ProfileView: View {
                 }
             }
             VStack{
-                Text("Перенесенные заболевания:")
+                Text("Past illnesses:")
                     .font(.system(size: 20, weight: .heavy))
                     .foregroundColor(.orange)
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -62,7 +62,7 @@ struct ProfileView: View {
                 }
             }
             Section{
-                Button("Добавить") {
+                Button("Add illness") {
                     self.isModal = true
                 }.sheet(isPresented: $isModal) {
                     NewIllView(child: self.child)
@@ -76,7 +76,7 @@ struct ProfileView: View {
         }.onAppear(perform: getData)
             .onDisappear(perform: removeData)
             .navigationBarItems(trailing:
-                Button("Редактировать") {
+                Button("Edit") {
                     self.isModalEditChildView = true
                 }.sheet(isPresented: $isModalEditChildView) {
                     EditChildView(child: self.child)

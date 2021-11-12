@@ -36,27 +36,27 @@ struct EditChildView: View {
                     .frame(width: 70, height: 70, alignment: .leading)
                     .clipShape(Circle())
                 Section{
-                    Text("Имя:")
-                    TextField("Имя", text: $name).modifier(TextFieldModifire())
+                    Text("Name:")
+                    TextField("Name", text: $name).modifier(TextFieldModifire())
                 }
                 Section{
-                    Text("День рождения:")
-                    TextField("День рождения", text: $birthDay).modifier(TextFieldModifire())
+                    Text("Birth date:")
+                    TextField("Birth date", text: $birthDay).modifier(TextFieldModifire())
                 }
                 Section{
-                    Text("Пол:")
-                    TextField("Пол", text: $gender).modifier(TextFieldModifire())
+                    Text("Sex:")
+                    TextField("Sex", text: $gender).modifier(TextFieldModifire())
                 }
                 Section{
-                    Text("Вес:")
-                    TextField("Вес", text: $weight).modifier(TextFieldModifire())
+                    Text("Weight:")
+                    TextField("Weight", text: $weight).modifier(TextFieldModifire())
                 }
                 Section{
-                    Text("Группа крови:")
-                    TextField("Группа крови", text: $bloodType).modifier(TextFieldModifire())
+                    Text("Blood type:")
+                    TextField("Blood type", text: $bloodType).modifier(TextFieldModifire())
                 }
                 Button(action: editChild) {
-                    Text("Сохранить")
+                    Text("Save")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 50)
                         .foregroundColor(.white)

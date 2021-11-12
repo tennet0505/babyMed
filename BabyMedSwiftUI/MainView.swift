@@ -33,7 +33,7 @@ struct MainView: View {
                     }
                 }
                 Section{
-                    Button("Добавить") {
+                    Button("Add person") {
                         self.isModal = true
                     }.sheet(isPresented: $isModal) {
                         NewChildView()

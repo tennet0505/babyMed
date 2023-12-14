@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FirebaseCore/Sources/Private/FirebaseCoreInternal.h"
+#import "FirebaseCore/Extension/FirebaseCoreInternal.h"
 #import "FirebaseDatabase/Sources/Api/Private/FIRDataSnapshot_Private.h"
 #import "FirebaseDatabase/Sources/Api/Private/FIRDatabaseQuery_Private.h"
 #import "FirebaseDatabase/Sources/Api/Private/FIRDatabase_Private.h"
@@ -52,7 +52,8 @@
 #import "FirebaseDatabase/Sources/Utilities/Tuples/FTupleTransaction.h"
 #import <dlfcn.h>
 
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV ||                                           \
+    (defined(TARGET_OS_VISION) && TARGET_OS_VISION)
 #import <UIKit/UIKit.h>
 #endif
 
@@ -519,17 +520,18 @@
 }
 
 - (void)getData:(FIRDatabaseQuery *)query
-    withCompletionBlock:
-        (void (^_Nonnull)(NSError *__nullable error,
-                          FIRDataSnapshot *__nullable snapshot))block {
+    withCompletionBlock:(void (^)(NSError *__nullable error,
+                                  FIRDataSnapshot *__nullable snapshot))block {
     FQuerySpec *querySpec = [query querySpec];
     id<FNode> node = [self.serverSyncTree getServerValue:[query querySpec]];
     if (node != nil) {
-        block(nil, [[FIRDataSnapshot alloc]
-                       initWithRef:query.ref
-                       indexedNode:[FIndexedNode
-                                       indexedNodeWithNode:node
-                                                     index:querySpec.index]]);
+        [self.eventRaiser raiseCallback:^{
+          block(nil, [[FIRDataSnapshot alloc]
+                         initWithRef:query.ref
+                         indexedNode:[FIndexedNode
+                                         indexedNodeWithNode:node
+                                                       index:querySpec.index]]);
+        }];
         return;
     }
     [self.persistenceManager setQueryActive:querySpec];
@@ -554,26 +556,33 @@
                                @"and no matching disk cache entries",
                                querySpec]
                    };
-                   block([NSError errorWithDomain:kFirebaseCoreErrorDomain
-                                             code:1
-                                         userInfo:errorDict],
-                         nil);
+                   [self.eventRaiser raiseCallback:^{
+                     block([NSError errorWithDomain:kFirebaseCoreErrorDomain
+                                               code:1
+                                           userInfo:errorDict],
+                           nil);
+                   }];
                    return;
                }
-               block(nil, [[FIRDataSnapshot alloc] initWithRef:query.ref
-                                                   indexedNode:node]);
+               [self.eventRaiser raiseCallback:^{
+                 block(nil, [[FIRDataSnapshot alloc] initWithRef:query.ref
+                                                     indexedNode:node]);
+               }];
            } else {
                node = [FSnapshotUtilities nodeFrom:data];
                [self.eventRaiser
                    raiseEvents:[self.serverSyncTree
                                    applyServerOverwriteAtPath:[query path]
                                                       newData:node]];
-               block(nil,
+               [self.eventRaiser raiseCallback:^{
+                 block(
+                     nil,
                      [[FIRDataSnapshot alloc]
                          initWithRef:query.ref
                          indexedNode:[FIndexedNode
                                          indexedNodeWithNode:node
                                                        index:querySpec.index]]);
+               }];
            }
            [self.persistenceManager setQueryInactive:querySpec];
          }];
@@ -807,7 +816,8 @@
 
 // Targetted compilation is ONLY for testing. UIKit is weak-linked in actual
 // release build.
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV ||                                           \
+    (defined(TARGET_OS_VISION) && TARGET_OS_VISION)
     // The idea is to wait until any outstanding sets get written to disk. Since
     // the sets might still be in our dispatch queue, we wait for the dispatch
     // queue to catch up and for persistence to catch up. This may be

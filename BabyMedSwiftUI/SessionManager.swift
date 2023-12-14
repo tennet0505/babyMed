@@ -9,6 +9,7 @@
 import SwiftUI
 import Firebase
 import Combine
+import FirebaseAuth
 
 class SessionManager: ObservableObject {
     
@@ -28,10 +29,10 @@ class SessionManager: ObservableObject {
             }
         })
     }
-    func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback){
+    func signUp(email: String, password: String, handler: @escaping (AuthDataResult?, Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }
-    func signIn(email: String, password: String, handler: @escaping AuthDataResultCallback){
+    func signIn(email: String, password: String, handler: @escaping (AuthDataResult?, Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
     func signOut(){

@@ -86,7 +86,7 @@ struct IllDetailView: View {
                 Section(){
                     if !isEdit{
                         WebImage(url: URL(string: ill.treatmentPhotoUri))
-                            .onSuccess { image, cacheType in
+                            .onSuccess { image, cacheType, _  in
                                 // Success
                         }
                         .resizable()

@@ -16,14 +16,14 @@ struct SignInView: View {
     @EnvironmentObject var session: SessionManager
     
     func signIn(){
-        session.signIn(email: email, password: password) { (result, error) in
-            if let error = error{
-                self.error = error.localizedDescription
-            }else{
-                self.email = ""
-                self.password = ""
-            }
-        }
+//        $session.signIn(email: email, password: password) { (result, error) in
+//            if let error = error{
+//                self.error = error.localizedDescription
+//            }else{
+//                self.email = ""
+//                self.password = ""
+//            }
+//        }
     }
     
     var body: some View {
